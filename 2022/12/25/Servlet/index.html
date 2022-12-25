@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/kaikai.github.io/img/fluid.png">
-  <link rel="icon" href="/kaikai.github.io/img/kaiicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/kaiicon.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -19,29 +19,29 @@
     <meta name="description" content="本文对Servlet的基础知识进行介绍，希望对您有所帮助">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Servlet">
-<meta property="og:url" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/index.html">
+<meta property="og:url" content="http://kaikai52125.top/2022/12/25/Servlet/index.html">
 <meta property="og:site_name" content="楷楷">
 <meta property="og:description" content="本文对Servlet的基础知识进行介绍，希望对您有所帮助">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/HTTP1.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/HTTP2%E4%B9%A6%E5%86%99%E6%A0%BC%E5%BC%8F.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/Tomcat%E7%9B%AE%E5%BD%95.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%BA%8C.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%B8%80.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%B8%89.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/servlet%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/servlet%E6%97%B6%E5%BA%8F%E5%9B%BE.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/ser0708.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/context%E5%AF%B9%E8%B1%A1%E8%8E%B7%E5%8F%96%E4%B8%8E%E4%BD%BF%E7%94%A8.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/%E5%88%9B%E5%BB%BAcookie.png">
-<meta property="og:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/%E8%8E%B7%E5%8F%96cookie.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/HTTP1.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/HTTP2%E4%B9%A6%E5%86%99%E6%A0%BC%E5%BC%8F.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/Tomcat%E7%9B%AE%E5%BD%95.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%BA%8C.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%B8%80.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%B8%89.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/servlet%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/servlet%E6%97%B6%E5%BA%8F%E5%9B%BE.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/ser0708.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/context%E5%AF%B9%E8%B1%A1%E8%8E%B7%E5%8F%96%E4%B8%8E%E4%BD%BF%E7%94%A8.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/%E5%88%9B%E5%BB%BAcookie.png">
+<meta property="og:image" content="http://kaikai52125.top/2022/12/25/Servlet/%E8%8E%B7%E5%8F%96cookie.png">
 <meta property="article:published_time" content="2022-12-25T03:10:04.000Z">
 <meta property="article:modified_time" content="2022-12-25T03:23:55.663Z">
 <meta property="article:author" content="Hou Kai">
 <meta property="article:tag" content="Servlet">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/HTTP1.png">
+<meta name="twitter:image" content="http://kaikai52125.top/2022/12/25/Servlet/HTTP1.png">
   
   
   
@@ -69,12 +69,12 @@
 <link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
 
 
-<link  rel="stylesheet" href="/kaikai.github.io/css/main.css" />
+<link  rel="stylesheet" href="/css/main.css" />
 
 
-  <link id="highlight-css" rel="stylesheet" href="/kaikai.github.io/css/highlight.css" />
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
   
-    <link id="highlight-css-dark" rel="stylesheet" href="/kaikai.github.io/css/highlight-dark.css" />
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
   
 
 
@@ -83,15 +83,15 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"kaikai12321","root":"/kaikai.github.io/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"STsUnMjacd3JgrUyQjh2Whjc-gzGzoHsz","app_key":"McIbgVI9Lgj0fJnq9lJAzHAX","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/kaikai.github.io/local-search.xml"};
+    var CONFIG = {"hostname":"kaikai52125.top","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"STsUnMjacd3JgrUyQjh2Whjc-gzGzoHsz","app_key":"McIbgVI9Lgj0fJnq9lJAzHAX","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
       Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
   </script>
-  <script  src="/kaikai.github.io/js/utils.js" ></script>
-  <script  src="/kaikai.github.io/js/color-schema.js" ></script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
   
 
 
@@ -108,7 +108,7 @@
 <div class="header-inner" style="height: 70vh;">
   <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
-    <a class="navbar-brand" href="/kaikai.github.io/">
+    <a class="navbar-brand" href="/">
       <strong>楷楷</strong>
     </a>
 
@@ -127,7 +127,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/kaikai.github.io/">
+              <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
                 <span>首页</span>
               </a>
@@ -139,7 +139,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/kaikai.github.io/archives/">
+              <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
                 <span>归档</span>
               </a>
@@ -151,7 +151,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/kaikai.github.io/categories/">
+              <a class="nav-link" href="/categories/">
                 <i class="iconfont icon-category-fill"></i>
                 <span>分类</span>
               </a>
@@ -163,7 +163,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/kaikai.github.io/tags/">
+              <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
                 <span>标签</span>
               </a>
@@ -175,7 +175,7 @@
           
           
             <li class="nav-item">
-              <a class="nav-link" href="/kaikai.github.io/about/">
+              <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
                 <span>关于</span>
               </a>
@@ -205,7 +205,7 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/kaikai.github.io/img/default.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
@@ -293,9 +293,9 @@
 
 <h3 id="一-HTTP协议"><a href="#一-HTTP协议" class="headerlink" title="一.HTTP协议"></a>一.HTTP协议</h3><h4 id="1-1-介绍"><a href="#1-1-介绍" class="headerlink" title="1.1 介绍"></a>1.1 介绍</h4><p>​		超文本传输协议，客户端请求和相应的标准协议，这个协议详细规定了浏览器和万维网服务器之间的互相通信规则。</p>
 <p>请求协议 和 响应协议</p>
-<img src="/kaikai.github.io/2022/12/25/Servlet/HTTP1.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="HTTP协议">
+<img src="/2022/12/25/Servlet/HTTP1.png" srcset="/img/loading.gif" lazyload class="" title="HTTP协议">
 
-<h4 id="1-2-书写格式"><a href="#1-2-书写格式" class="headerlink" title="1.2 书写格式"></a>1.2 书写格式</h4><img src="/kaikai.github.io/2022/12/25/Servlet/HTTP2%E4%B9%A6%E5%86%99%E6%A0%BC%E5%BC%8F.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="HTTP2书写格式">
+<h4 id="1-2-书写格式"><a href="#1-2-书写格式" class="headerlink" title="1.2 书写格式"></a>1.2 书写格式</h4><img src="/2022/12/25/Servlet/HTTP2%E4%B9%A6%E5%86%99%E6%A0%BC%E5%BC%8F.png" srcset="/img/loading.gif" lazyload class="" title="HTTP2书写格式">
 
 <h4 id="1-3-协议特点"><a href="#1-3-协议特点" class="headerlink" title="1.3 协议特点"></a>1.3 协议特点</h4><ul>
 <li><p>支持客户&#x2F;服务器模式</p>
@@ -338,17 +338,17 @@
 
 <h3 id="二-Tomcat"><a href="#二-Tomcat" class="headerlink" title="二. Tomcat"></a>二. Tomcat</h3><h4 id="2-1-介绍"><a href="#2-1-介绍" class="headerlink" title="2.1 介绍"></a>2.1 介绍</h4><p>​	免费开源的轻量级web服务器</p>
 <p>​	性能稳定 中小型系统使用多</p>
-<h4 id="2-2-目录结构"><a href="#2-2-目录结构" class="headerlink" title="2.2 目录结构"></a>2.2 目录结构</h4><img src="/kaikai.github.io/2022/12/25/Servlet/Tomcat%E7%9B%AE%E5%BD%95.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="Tomcat目录">
+<h4 id="2-2-目录结构"><a href="#2-2-目录结构" class="headerlink" title="2.2 目录结构"></a>2.2 目录结构</h4><img src="/2022/12/25/Servlet/Tomcat%E7%9B%AE%E5%BD%95.png" srcset="/img/loading.gif" lazyload class="" title="Tomcat目录">
 
 <h4 id="2-3-部署方式"><a href="#2-3-部署方式" class="headerlink" title="2.3 部署方式"></a>2.3 部署方式</h4><ul>
 <li><p>直接将项目放在webapps里</p>
-<img src="/kaikai.github.io/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%BA%8C.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="部署方式二">
+<img src="/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%BA%8C.png" srcset="/img/loading.gif" lazyload class="" title="部署方式二">
 </li>
 <li><p>配置conf&#x2F;server.xml</p>
-<img src="/kaikai.github.io/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%B8%80.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="部署方式一">
+<img src="/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%B8%80.png" srcset="/img/loading.gif" lazyload class="" title="部署方式一">
 </li>
 <li><p>在conf&#x2F;Catalina&#x2F;localhost创建任意名称的xml文件</p>
-<img src="/kaikai.github.io/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%B8%89.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="部署方式三"></li>
+<img src="/2022/12/25/Servlet/%E9%83%A8%E7%BD%B2%E6%96%B9%E5%BC%8F%E4%B8%89.png" srcset="/img/loading.gif" lazyload class="" title="部署方式三"></li>
 </ul>
 <h3 id="三-servlet基础"><a href="#三-servlet基础" class="headerlink" title="三. servlet基础"></a>三. servlet基础</h3><h4 id="3-1-介绍"><a href="#3-1-介绍" class="headerlink" title="3.1 介绍"></a>3.1 介绍</h4><p>​	servlet是server和applet的缩写 服务端小程序</p>
 <p>​	servlet本质上也是java类，但要遵循他自己的规范，没有main方法，他的创建和，使用，销毁都由Servlet容器进行管理(如：tomcat)</p>
@@ -365,7 +365,7 @@
 <h4 id="3-4-设置注解"><a href="#3-4-设置注解" class="headerlink" title="3.4 设置注解"></a>3.4 设置注解</h4><p>一次只用一种 切记路径中的<strong>斜杠</strong>记得写</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@WebServlet(&quot;/ser01&quot;)</span><br><span class="hljs-meta">@WebServlet(name = &quot;kai1&quot;,value = &quot;/ser01&quot;)</span><br><span class="hljs-meta">@WebServlet(name = &quot;kai1&quot;,value = &#123;&quot;/ser01&quot;,&quot;/ser02&quot;&#125;)</span><br></code></pre></td></tr></table></figure>
 
-<h4 id="3-5-工作流程"><a href="#3-5-工作流程" class="headerlink" title="3.5 工作流程"></a>3.5 工作流程</h4><img src="/kaikai.github.io/2022/12/25/Servlet/servlet%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="servlet工作流程">
+<h4 id="3-5-工作流程"><a href="#3-5-工作流程" class="headerlink" title="3.5 工作流程"></a>3.5 工作流程</h4><img src="/2022/12/25/Servlet/servlet%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B.png" srcset="/img/loading.gif" lazyload class="" title="servlet工作流程">
 
 <h4 id="3-6-doGet和doPost"><a href="#3-6-doGet和doPost" class="headerlink" title="3.6 doGet和doPost"></a>3.6 doGet和doPost</h4><p>​	<strong>案例实现04</strong></p>
 <p>​	实际上重写Service更方便，通过调用会自动根据请求方式处理</p>
@@ -373,7 +373,7 @@
 <p>​	init：系统方法 当请求到达servlet容器时，servlet容器会判断该	Servlet对象是否存在，不存在才会调用创建实例</p>
 <p>​	service：当有请求到达时调用 可以被多次调用</p>
 <p>​	destroy：当服务器关闭或应用程序停止时调用该方法，只调用一次</p>
-<img src="/kaikai.github.io/2022/12/25/Servlet/servlet%E6%97%B6%E5%BA%8F%E5%9B%BE.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="servlet时序图">
+<img src="/2022/12/25/Servlet/servlet%E6%97%B6%E5%BA%8F%E5%9B%BE.png" srcset="/img/loading.gif" lazyload class="" title="servlet时序图">
 
 <ul>
 <li>web客户端向servlet容器发出http请求</li>
@@ -394,7 +394,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">req.serCharacterEncoding(<span class="hljs-string">&quot;UTF-8&quot;</span>)<br></code></pre></td></tr></table></figure>
 
 <h5 id="4-1-3-请求转发"><a href="#4-1-3-请求转发" class="headerlink" title="4.1.3 请求转发"></a>4.1.3 请求转发</h5><p><strong>案例实现ser07+ser08</strong></p>
-<img src="/kaikai.github.io/2022/12/25/Servlet/ser0708.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="ser0708">
+<img src="/2022/12/25/Servlet/ser0708.png" srcset="/img/loading.gif" lazyload class="" title="ser0708">
 
 <p>​	是一种服务器行为，当客户端请求到达后，服务器进行转发，此时会将请求对象进行保存，地址栏中的URL地址不会改变，得到响应后，服务器端再响应发送给客户端，从始至终只有一个请求发出</p>
 <p>​	服务端行为</p>
@@ -489,7 +489,7 @@
 <h5 id="4-4-2-获取和常用方法"><a href="#4-4-2-获取和常用方法" class="headerlink" title="4.4.2 获取和常用方法"></a>4.4.2 获取和常用方法</h5><p><strong>案例实现con1</strong></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//通过req获取</span><br><span class="hljs-type">ServletContext</span> <span class="hljs-variable">servletContext1</span> <span class="hljs-operator">=</span>  req.getServletContext();<br><span class="hljs-comment">//通过session对象获取</span><br><span class="hljs-type">ServletContext</span> <span class="hljs-variable">servletContext2</span> <span class="hljs-operator">=</span> req.getSession().getServletContext();<br><span class="hljs-comment">//通过ServletConfig对象获取</span><br><span class="hljs-type">ServletContext</span> <span class="hljs-variable">servletContext3</span> <span class="hljs-operator">=</span> getServletConfig().getServletContext();<br><span class="hljs-comment">//直接获取</span><br><span class="hljs-type">ServletContext</span> <span class="hljs-variable">servletContext4</span> <span class="hljs-operator">=</span> getServletContext();<br><span class="hljs-comment">//常用方法</span><br><span class="hljs-comment">//1.获取版本信息</span><br><span class="hljs-type">String</span> <span class="hljs-variable">serverInfo</span> <span class="hljs-operator">=</span> req.getServletContext().getServerInfo();<br><span class="hljs-comment">//2.获取项目真实路径</span><br><span class="hljs-type">String</span> <span class="hljs-variable">realPath</span> <span class="hljs-operator">=</span> req.getServletContext().getRealPath(<span class="hljs-string">&quot;/&quot;</span>);<br></code></pre></td></tr></table></figure>
 
-<img src="/kaikai.github.io/2022/12/25/Servlet/context%E5%AF%B9%E8%B1%A1%E8%8E%B7%E5%8F%96%E4%B8%8E%E4%BD%BF%E7%94%A8.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="context对象获取与使用">
+<img src="/2022/12/25/Servlet/context%E5%AF%B9%E8%B1%A1%E8%8E%B7%E5%8F%96%E4%B8%8E%E4%BD%BF%E7%94%A8.png" srcset="/img/loading.gif" lazyload class="" title="context对象获取与使用">
 
 <h5 id="4-4-3-域对象"><a href="#4-4-3-域对象" class="headerlink" title="4.4.3 域对象"></a>4.4.3 域对象</h5><p>三大域对象</p>
 <ul>
@@ -504,7 +504,7 @@
 </li>
 </ul>
 <h3 id="五-文件上传和下载"><a href="#五-文件上传和下载" class="headerlink" title="五. 文件上传和下载"></a>五. 文件上传和下载</h3><h4 id="5-1-上传"><a href="#5-1-上传" class="headerlink" title="5.1 上传"></a>5.1 上传</h4><p><strong>案例实现wen1+shangchuan.html</strong></p>
-<img src="/kaikai.github.io/2022/12/25/Servlet/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="上传文件">
+<img src="/2022/12/25/Servlet/%E4%B8%8A%E4%BC%A0%E6%96%87%E4%BB%B6.png" srcset="/img/loading.gif" lazyload class="" title="上传文件">
 
 <h4 id="5-2-下载"><a href="#5-2-下载" class="headerlink" title="5.2 下载"></a>5.2 下载</h4><p>​	使用超链接时，如果遇到浏览器能够识别的资源，则会显示内容，如果遇到浏览器不能识别的资源，则会进行下载</p>
 <p><strong>案例实现shangchuan.html</strong></p>
@@ -515,11 +515,11 @@
 <h3 id="六-cookie"><a href="#六-cookie" class="headerlink" title="六.cookie"></a>六.cookie</h3><h4 id="6-1-介绍"><a href="#6-1-介绍" class="headerlink" title="6.1 介绍"></a>6.1 介绍</h4><p>​		是浏览器提供的一种技术，通过服务器的程序能将一些只须保存在客户端，或者在客户端进行处理的数据，放在本地的计算机上，不需要通过网络传输，因而提高网页处理的效率，并且能够减少服务器的负载，但是由于cookie是服务器端保存在客户端的信息，所以安全性很差，例如保存密码</p>
 <h4 id="6-2-创建发送"><a href="#6-2-创建发送" class="headerlink" title="6.2 创建发送"></a>6.2 创建发送</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//cookie 创建</span><br><span class="hljs-type">Cookie</span> <span class="hljs-variable">cookie</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Cookie</span>(<span class="hljs-string">&quot;name&quot;</span>,<span class="hljs-string">&quot;kai&quot;</span>);<br><span class="hljs-comment">//发送cookie对象</span><br>resp.addCookie(cookie);<br></code></pre></td></tr></table></figure>
 
-<img src="/kaikai.github.io/2022/12/25/Servlet/%E5%88%9B%E5%BB%BAcookie.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="创建cookie">
+<img src="/2022/12/25/Servlet/%E5%88%9B%E5%BB%BAcookie.png" srcset="/img/loading.gif" lazyload class="" title="创建cookie">
 
 <h4 id="6-3-cookie获取"><a href="#6-3-cookie获取" class="headerlink" title="6.3 cookie获取"></a>6.3 cookie获取</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//cookie获取 返回的是数组 需要遍历</span><br>Cookie[] cookies = req.getCookies();<br><span class="hljs-keyword">if</span>(cookies!=<span class="hljs-literal">null</span> &amp;&amp; cookies.length&gt;<span class="hljs-number">0</span>)&#123;<br>    <span class="hljs-keyword">for</span>(Cookie cookie:cookies)&#123;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">name</span> <span class="hljs-operator">=</span> cookie.getName();<br>        <span class="hljs-type">String</span> <span class="hljs-variable">value</span> <span class="hljs-operator">=</span> cookie.getValue();<br>        System.out.println(<span class="hljs-string">&quot;名称：&quot;</span>+name+<span class="hljs-string">&quot; &quot;</span>+<span class="hljs-string">&quot;value:&quot;</span>+value);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<img src="/kaikai.github.io/2022/12/25/Servlet/%E8%8E%B7%E5%8F%96cookie.png" srcset="/kaikai.github.io/img/loading.gif" lazyload class="" title="获取cookie">
+<img src="/2022/12/25/Servlet/%E8%8E%B7%E5%8F%96cookie.png" srcset="/img/loading.gif" lazyload class="" title="获取cookie">
 
 <h4 id="6-4-到期时间"><a href="#6-4-到期时间" class="headerlink" title="6.4 到期时间"></a>6.4 到期时间</h4><p>取值</p>
 <ul>
@@ -635,7 +635,7 @@
     
       <span class="category-chain">
         
-  <a href="/kaikai.github.io/categories/Servlet/" class="category-chain-item">Servlet</a>
+  <a href="/categories/Servlet/" class="category-chain-item">Servlet</a>
   
   
 
@@ -650,7 +650,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/kaikai.github.io/tags/Servlet/">#Servlet</a>
+        <a href="/tags/Servlet/">#Servlet</a>
       
     </div>
   
@@ -663,7 +663,7 @@
   <div class="license-box my-3">
     <div class="license-title">
       <div>Servlet</div>
-      <div>http://kaikai12321/kaikai.github.io/2022/12/25/Servlet/</div>
+      <div>http://kaikai52125.top/2022/12/25/Servlet/</div>
     </div>
     <div class="license-meta">
       
@@ -707,7 +707,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/kaikai.github.io/2022/12/25/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" title="学习资料">
+                      <a href="/2022/12/25/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" title="学习资料">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">学习资料</span>
                         <span class="visible-mobile">上一篇</span>
@@ -717,7 +717,7 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/kaikai.github.io/2022/12/25/ES6/" title="ES6">
+                      <a href="/2022/12/25/ES6/" title="ES6">
                         <span class="hidden-mobile">ES6</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
@@ -903,8 +903,8 @@
 
 <script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
 <script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/kaikai.github.io/js/events.js" ></script>
-<script  src="/kaikai.github.io/js/plugins.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
 
 
   <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
@@ -926,7 +926,7 @@
 
 
   
-    <script  src="/kaikai.github.io/js/img-lazyload.js" ></script>
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
@@ -1025,9 +1025,9 @@
 
   <script>Fluid.plugins.imageCaption();</script>
 
-  <script  src="/kaikai.github.io/js/local-search.js" ></script>
+  <script  src="/js/local-search.js" ></script>
 
-  <script defer src="/kaikai.github.io/js/leancloud.js" ></script>
+  <script defer src="/js/leancloud.js" ></script>
 
 
 
@@ -1035,7 +1035,7 @@
 
 <!-- 主题的启动项，将它保持在最底部 -->
 <!-- the boot of the theme, keep it at the bottom -->
-<script  src="/kaikai.github.io/js/boot.js" ></script>
+<script  src="/js/boot.js" ></script>
 
 
   
