@@ -16,21 +16,22 @@
   <meta name="author" content="Hou Kai">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="ES6本文对ES6的一些简单用法进行介绍，希望对您有所帮助">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://kaikai12321/kaikai.github.io/2022/12/24/hello-world/index.html">
+<meta property="og:title" content="ES6">
+<meta property="og:url" content="http://kaikai12321/kaikai.github.io/2022/12/25/ES6/index.html">
 <meta property="og:site_name" content="楷楷">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="ES6本文对ES6的一些简单用法进行介绍，希望对您有所帮助">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-12-24T13:52:04.350Z">
-<meta property="article:modified_time" content="2022-12-24T13:52:04.350Z">
+<meta property="article:published_time" content="2022-12-25T02:50:51.000Z">
+<meta property="article:modified_time" content="2022-12-25T03:07:15.807Z">
 <meta property="article:author" content="Hou Kai">
+<meta property="article:tag" content="Java scripts">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Hello World - 楷楷</title>
+  <title>ES6 - 楷楷</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -196,7 +197,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="ES6"></span>
           
         </div>
 
@@ -207,8 +208,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-24 21:52" pubdate>
-          2022年12月24日 晚上
+        <time datetime="2022-12-25 10:50" pubdate>
+          2022年12月25日 上午
         </time>
       </span>
     
@@ -219,7 +220,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          367 字
+          2.1k 字
         
       </span>
     
@@ -230,7 +231,7 @@
         
         
         
-          4 分钟
+          18 分钟
         
       </span>
     
@@ -268,24 +269,144 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">ES6</h1>
             
             
               <div class="markdown-body">
                 
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
+                <h1 id="ES6"><a href="#ES6" class="headerlink" title="ES6"></a>ES6</h1><p>本文对ES6的一些简单用法进行介绍，希望对您有所帮助</p>
+<span id="more"></span>									
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
+<h3 id="一-定义变量"><a href="#一-定义变量" class="headerlink" title="一. 定义变量"></a>一. 定义变量</h3><blockquote>
+<ol>
+<li><p>let 与var 的区别 </p>
+<p>let必须先定义再使用</p>
+<p>变量重名 let 的会报错  var不会</p>
+<p>块级作用域 </p>
+<p>​		let 会被括号{ }限制</p>
+<p>​		var 只会被function限制</p>
+</li>
+<li><p>const 常量 必须赋初值 后面不可再被赋值</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="二-箭头函数"><a href="#二-箭头函数" class="headerlink" title="二. 箭头函数"></a>二. 箭头函数</h3><blockquote>
+<ol>
+<li><p>格式 </p>
+<p>var test &#x3D; () &#x3D;&gt; {</p>
+<p>​		..</p>
+<p>}</p>
+</li>
+<li><p>小括号可以省略</p>
+<p>条件 形参只有一个 </p>
+<p>var test &#x3D; a&#x3D;&gt;{</p>
+<p>}</p>
+</li>
+<li><p>大括号可以省略</p>
+<p>只有一句代码时 </p>
+<p>只有一个return 时 return也可以省</p>
+</li>
+<li><p>没有arguments  </p>
+<p>arguments 是用来获取形参 的一个伪数组</p>
+</li>
+<li><p>this问题</p>
+<p>箭头函数this  是父级作用域的</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="三-解构赋值"><a href="#三-解构赋值" class="headerlink" title="三. 解构赋值"></a>三. 解构赋值</h3><blockquote>
+<ol>
+<li><p>按照结构快速从数组中取值</p>
+<p>交换 a b值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = <span class="hljs-number">10</span> <br><span class="hljs-keyword">var</span> b = <span class="hljs-number">20</span><br><span class="hljs-keyword">var</span> [b,a] = [a,b]<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
+<p>多维数组取值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> arr = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,[<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,[<span class="hljs-number">5</span>]]]<br><span class="hljs-comment">//取5</span><br><span class="hljs-keyword">var</span> [a,b,[c,d,[e]]] = arr<br><span class="hljs-comment">// e 即为值</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>快速取对象中的值</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> obj = &#123;<br>    <span class="hljs-attr">name</span>:<span class="hljs-string">&quot;kai&quot;</span>,<br>    <span class="hljs-attr">age</span>:<span class="hljs-number">100</span>,<br>    <span class="hljs-attr">location</span>:<span class="hljs-number">111</span><br>&#125;<br><span class="hljs-keyword">let</span> &#123;name,age,location&#125; = obj<br><span class="hljs-comment">//   要对应 对号入座</span><br><span class="hljs-comment">// 有时候会重名 解决方法：location:mylocation \ 或者用var \ 用.获取</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<h3 id="四-对象简写"><a href="#四-对象简写" class="headerlink" title="四. 对象简写"></a>四. 对象简写</h3><blockquote>
+<ol>
+<li>当key 和 变量 一致时可以省略一个</li>
+<li>值为函数时可以省掉 ：function</li>
+</ol>
+</blockquote>
+<h3 id="五-展开运算符"><a href="#五-展开运算符" class="headerlink" title="五. 展开运算符"></a>五. 展开运算符</h3><blockquote>
+<ol>
+<li><p>三个点 </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> a = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br><span class="hljs-keyword">var</span> b = [<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>]<br><span class="hljs-keyword">var</span> d = [a,b] <span class="hljs-comment">// [[1,2,3],[4,5,6]]</span><br><span class="hljs-keyword">var</span> c = [...a,...b] <span class="hljs-comment">// 1 2 3 4 5 6</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>不确定数形参 </p>
+</li>
+<li><p>实参 也会对号入座</p>
+</li>
+<li><p>伪数组转化</p>
+<p>var arr &#x3D; […arguments]</p>
+</li>
+<li><p>合并对象</p>
+<p>var obj &#x3D; {</p>
+<p>​      …obj1,</p>
+<p>​      …obj2</p>
+<p>}</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="六-模块化语法"><a href="#六-模块化语法" class="headerlink" title="六. 模块化语法"></a>六. 模块化语法</h3><blockquote>
+<ol>
+<li><p>使用方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">export</span> &#123;函数名<span class="hljs-number">1</span>,函数名<span class="hljs-number">2</span>,...&#125;<br></code></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">&lt;script type=<span class="hljs-string">&quot;module&quot;</span>&gt;<br>    <span class="hljs-keyword">import</span> &#123;函数名<span class="hljs-number">1</span>,函数名<span class="hljs-number">2</span>,...&#125; <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;./文件包名/文件名.js&#x27;</span><br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>解决问题</p>
+</li>
+</ol>
+<ul>
+<li><p>私密不漏 不能调js文件中的私密函数</p>
+</li>
+<li><p>重名问题 导入多个时如果有重名会提示报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">import</span> &#123;函数名<span class="hljs-number">1</span>,函数名<span class="hljs-number">2</span> <span class="hljs-keyword">as</span> 新函数名<span class="hljs-number">2</span>,...&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>依赖不乱 导入顺序不对会出问题</p>
+<p>可以在需要调用别的js文件的文件中import导入</p>
+</li>
+</ul>
+</blockquote>
+<h3 id="七-面向对象"><a href="#七-面向对象" class="headerlink" title="七. 面向对象"></a>七. 面向对象</h3><blockquote>
+<ol>
+<li><p>创建对象</p>
+<p>字面量 </p>
+<p>new 方法</p>
+<p>工厂函数</p>
+<p><strong>自定义构造函数</strong></p>
+<p>注意：</p>
+<p>​	首字母大写 推荐</p>
+<p>​	构造函数无return 无意义</p>
+<p>​	</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">function</span> <span class="hljs-title function_">CreateObj</span>(<span class="hljs-params">name</span>)&#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">a</span> = <span class="hljs-number">1</span><br>&#125;<br><span class="hljs-keyword">var</span> obj1 = <span class="hljs-keyword">new</span> <span class="hljs-title class_">CreateObj</span>(<span class="hljs-number">111</span>)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p><strong>原型</strong></p>
+<p>共用内存</p>
+<p>构造函数.prototype.共享函数 &#x3D; 。。。</p>
+<p><em><strong>对象.__ proto__ &#x3D;&#x3D;&#x3D; 构造函数.prototype</strong></em></p>
+<p>扩展 原型链</p>
+<p>​	对象调用方法时 先找自己有没有 再找构造函数的prototype 没有再找上一级的 </p>
+<p>​	顶点为Object</p>
+</li>
+<li><p>ES6 的class</p>
+<p>语法糖 单纯的换了个形式</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Create</span>&#123;<br>    constructor&#123;<br>        <span class="hljs-comment">//构造函数</span><br>    &#125;<br>	。。。<br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>继承</p>
+<p>语法：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//构造函数继承 -- 属性继承</span><br><span class="hljs-comment">//无法继承方法</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">person</span>(<span class="hljs-params">name,age</span>) &#123;<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">name</span> = name<br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">age</span> = age<br>&#125;<br>person.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">say</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>    ...<br>&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">student</span>(<span class="hljs-params">name,age,grade</span>)&#123;<br>    person.<span class="hljs-title function_">call</span>(<span class="hljs-variable language_">this</span>,name,age) <span class="hljs-comment">//call 改变了this指向 由window指向student构造函数</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-property">grade</span> = grade<br>&#125;<br><span class="hljs-comment">//原型继承</span><br>student.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = person.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> <span class="hljs-comment">//不可取 会相互改变影响</span><br>student.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span> = <span class="hljs-keyword">new</span> <span class="hljs-title function_">person</span>() <span class="hljs-comment">//不相互影响 但会多废料 但不会影响</span><br>student.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">print</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;...&#125; <span class="hljs-comment">//增加方法</span><br>student.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">say</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;...&#125; <span class="hljs-comment">//覆盖方法</span><br>student.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">say2</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;   <span class="hljs-comment">//增强方法 重起个名字</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">say</span>()<br>    ... <br>&#125;<br><span class="hljs-comment">//组合继承 -- 两者结合</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>ES6 继承</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//extends 原型继承 </span><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">student</span> <span class="hljs-keyword">extends</span> <span class="hljs-title class_ inherited__">person</span>&#123;<br>    <span class="hljs-title function_">constructor</span>(<span class="hljs-params">name,age</span>)&#123;<br>        <span class="hljs-variable language_">super</span>(name,age)   <span class="hljs-comment">//person.call(this,name,age)</span><br>        <span class="hljs-variable language_">this</span>.<span class="hljs-property">grader</span> = grade<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
 
                 
               </div>
@@ -294,6 +415,34 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/kaikai.github.io/categories/web%E5%89%8D%E7%AB%AF/" class="category-chain-item">web前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/kaikai.github.io/tags/Java-scripts/">#Java scripts</a>
+      
+    </div>
   
 </div>
 
@@ -303,8 +452,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>http://kaikai12321/kaikai.github.io/2022/12/24/hello-world/</div>
+      <div>ES6</div>
+      <div>http://kaikai12321/kaikai.github.io/2022/12/25/ES6/</div>
     </div>
     <div class="license-meta">
       
@@ -316,7 +465,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月24日</div>
+          <div>2022年12月25日</div>
         </div>
       
       
@@ -348,15 +497,21 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/kaikai.github.io/2022/12/24/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">
+                      <a href="/kaikai.github.io/2022/12/25/Servlet/" title="Servlet">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">测试文章</span>
+                        <span class="hidden-mobile">Servlet</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/kaikai.github.io/2022/12/24/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0/" title="测试文章">
+                        <span class="hidden-mobile">测试文章</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
