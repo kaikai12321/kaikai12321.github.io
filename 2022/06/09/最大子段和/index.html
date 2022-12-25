@@ -1,0 +1,854 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/kaiicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Hou Kai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文主要介绍了最大子段和的三种算法，比较时间性能">
+<meta property="og:type" content="article">
+<meta property="og:title" content="最大子段和">
+<meta property="og:url" content="http://kaikai12321.github.io/2022/06/09/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/index.html">
+<meta property="og:site_name" content="楷楷">
+<meta property="og:description" content="本文主要介绍了最大子段和的三种算法，比较时间性能">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kaikai12321.github.io/img/%E4%BD%A9%E7%BD%97%E5%A8%9C1.jpg">
+<meta property="article:published_time" content="2022-06-09T12:55:27.000Z">
+<meta property="article:modified_time" content="2022-12-25T13:36:15.921Z">
+<meta property="article:author" content="Hou Kai">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="分治">
+<meta property="article:tag" content="动态规划">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://kaikai12321.github.io/img/%E4%BD%A9%E7%BD%97%E5%A8%9C1.jpg">
+  
+  
+  
+  <title>最大子段和 - 楷楷</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaikai12321.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"STsUnMjacd3JgrUyQjh2Whjc-gzGzoHsz","app_key":"McIbgVI9Lgj0fJnq9lJAzHAX","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>楷楷</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default7.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="最大子段和"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-06-09 20:55" pubdate>
+          2022年6月9日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">最大子段和</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本文主要介绍了最大子段和的三种算法，比较时间性能</p>
+<span id="more"></span>
+
+<h1 id="最大子段和"><a href="#最大子段和" class="headerlink" title="最大子段和"></a>最大子段和</h1><ul>
+<li><p><strong>一.实验题目</strong></p>
+<p>给定由<em>n</em>个整数组成的序列(<em>a</em>1, <em>a</em>2, …, <em>an</em>)，求该序列形如   的子段和的最大值，当所有整数均为负整数时，其最大子段和为0</p>
+</li>
+<li><p><strong>二.实验目的</strong></p>
+<ul>
+<li>深刻掌握动态规划法的设计思想并能熟练运用</li>
+<li>理解这样一个观点：同样的问题可以用不同的方法解决，一个好的算法是反复努力和重新修正的结果</li>
+</ul>
+</li>
+<li><p><strong>三.实验要求</strong></p>
+<ul>
+<li>分别用蛮力法、分治法和动态规划法设计最大子段和问题的算法</li>
+<li>比较不同算法的时间性能</li>
+<li>给出测试数据，写出程序文档</li>
+</ul>
+</li>
+<li><p><strong>四.算法实现分析及结果</strong></p>
+<ul>
+<li><p>蛮力法</p>
+<ul>
+<li><pre><code class="c++">#include&lt;bits/stdc++.h&gt;
+using namespace std;
+int ans,m;
+void sum(vector&lt;int&gt; v)
+&#123;
+    for(int i=0;i&lt;v.size();i++)&#123;
+        if(v[i]&lt;0) continue;
+        else&#123;
+            ans=0;
+            for(int j=i;j&lt;v.size();j++)&#123;
+                ans+=v[j];
+                if(m&lt;ans) m=ans;
+            &#125;
+        &#125;
+    &#125;
+&#125;
+int main()
+&#123;
+    vector&lt;int&gt; v;
+    int N;
+    cin&gt;&gt;N;
+    for(int i=0;i&lt;N;i++)&#123;
+        int a;
+        cin&gt;&gt;a;
+        v.push_back(a);
+    &#125;
+    sum(v);
+    cout&lt;&lt;m;
+    return 0;
+&#125;
+<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><code class="hljs excel"><br>  + 算法分析<br><br>    + 算法思想<br><br>      遍历，从每一个非<span class="hljs-number">0</span>的位置开始，将后面的数累加，如果累加和小于之前所计算的最大值，则ans记录为该值，直到循环结束<br><br>    + 时间复杂度分析<br><br>      最大时间复杂度为循环<span class="hljs-built_in">n</span>次，每次循环中再循环<span class="hljs-built_in">n</span>-i次----&gt;O(<span class="hljs-built_in">n</span>)=<span class="hljs-built_in">n</span>*(<span class="hljs-built_in">n</span>-<span class="hljs-number">1</span>)/<span class="hljs-number">2</span>----&gt;O($<span class="hljs-built_in">n</span>^<span class="hljs-number">2</span>$)<br><br>  + 实验结果分析<br><br>    &#123;% asset_img 最大子段和暴力.png 最大子段和暴力%&#125;<br><br>  + 运行结果<br><br>    &#123;% asset_img 最大字段和暴力运行结果.png 最大字段和暴力运行结果%&#125;<br><br>+ 分治法<br><br>  + ```c++<br>    <span class="hljs-built_in">int</span> MaxSum(<span class="hljs-built_in">int</span> a[],<span class="hljs-built_in">int</span> <span class="hljs-built_in">left</span>,<span class="hljs-built_in">int</span> <span class="hljs-built_in">right</span>)<br>    &#123;<br>    	<span class="hljs-built_in">int</span> <span class="hljs-built_in">sum</span>=<span class="hljs-number">0</span>,midSum=<span class="hljs-number">0</span>,leftsum=<span class="hljs-number">0</span>,rightsum=<span class="hljs-number">0</span>;<br>    	<span class="hljs-built_in">int</span> center,<span class="hljs-symbol">s1</span>,<span class="hljs-symbol">s2</span>,lefts,rights;<br>    	<span class="hljs-built_in">if</span>(<span class="hljs-built_in">left</span>==<span class="hljs-built_in">right</span>) <span class="hljs-built_in">sum</span>=a[<span class="hljs-built_in">left</span>];<br>    	else&#123;<br>    		center=(<span class="hljs-built_in">left</span>+<span class="hljs-built_in">right</span>)/<span class="hljs-number">2</span>;<br>    		leftsum=MaxSum(a,<span class="hljs-built_in">left</span>,center);<br>    		rightsum=MaxSum(a,center+<span class="hljs-number">1</span>,<span class="hljs-built_in">right</span>);<br>    		<br>    		<span class="hljs-symbol">s1</span>=<span class="hljs-number">0</span>;lefts=<span class="hljs-number">0</span>;<br>    		for(<span class="hljs-built_in">int</span> i=center;i&gt;=<span class="hljs-built_in">left</span>;i--)&#123;<br>    			lefts+=a[i];<br>    			<span class="hljs-symbol">s1</span>=<span class="hljs-built_in">max</span>(<span class="hljs-symbol">s1</span>,lefts);<br>    		&#125;<br>    		<br>    		<span class="hljs-symbol">s2</span>=<span class="hljs-number">0</span>;rights=<span class="hljs-number">0</span>;<br>    		for(<span class="hljs-built_in">int</span> j=center+<span class="hljs-number">1</span>;j&lt;=<span class="hljs-built_in">right</span>;j++)&#123;<br>    			rights+=a[j];<br>    			<span class="hljs-symbol">s2</span>=<span class="hljs-built_in">max</span>(<span class="hljs-symbol">s2</span>,rights);<br>    		&#125;<br>    		<br>    		midSum=<span class="hljs-symbol">s1</span>+<span class="hljs-symbol">s2</span>;<br>    		<span class="hljs-built_in">sum</span>=<span class="hljs-built_in">max</span>(midSum,<span class="hljs-built_in">max</span>(leftsum,rightsum));<br>    	&#125;<br>    	return <span class="hljs-built_in">sum</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
+</code></pre>
+</li>
+<li><p>算法分析</p>
+<ul>
+<li><p>算法思想</p>
+<p>将序列划分为两份，递归求解左右两部分，然后计算一部分再左面，另一部分在右面的情况，最后选取三者最小即为ans</p>
+</li>
+<li><p>时间复杂度分析</p>
+<p>当n&#x3D;&#x3D;1时 T(n)&#x3D;1</p>
+<p>当n&gt;1时   T(n)&#x3D;2*T(n&#x2F;2)+1—-&gt;O(n $log_2n$)</p>
+</li>
+</ul>
+</li>
+<li><p>实验结果分析</p>
+<img src="/2022/06/09/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E5%88%86%E6%B2%BB%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90.png" srcset="/img/loading.gif" lazyload class="" title="最大子段和分治算法分析">
+</li>
+<li><p>运行结果</p>
+<img src="/2022/06/09/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C%E5%88%86%E6%B2%BB%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" srcset="/img/loading.gif" lazyload class="" title="最大子段和分治运行结果"></li>
+</ul>
+</li>
+<li><p>动态规划法</p>
+<ul>
+<li><pre><code class="c++">//只要前面的数的和不小于零加上下一个一定比下一个大
+int MaxSum(int a[],int n)
+&#123;
+    int pre=0;
+    int sum=0;
+    for(int i=0;i&lt;n;i++)&#123;
+        if(pre&lt;=0) pre=a[i];
+        else pre+=a[i];			
+        sum=max(sum,pre);
+    &#125;
+    return sum;
+&#125; 
+</code></pre>
+</li>
+<li><p>算法分析</p>
+<ul>
+<li><p>算法思想</p>
+<p>满足最优性原理，设a 1,a 2,a 3,–,an是最长字段是起始位置到n的最长字段和，如果b 1,    b 2,b 3,–,b n是起始位置到n-1的最大字段和，则b 1到an的和要大于a 1到a n，从而导致矛盾，所以满足最优性原理</p>
+<p>状态方程：$b[j]&#x3D;max(\sum_{k&#x3D;i}^{j}a[k])   0&lt;&#x3D;i&lt;j$</p>
+<p>——&gt;&gt;&gt;当b[j-1]&gt;0时,b[j]&#x3D;b[j-1]+a[j],else b[j]&#x3D;a[j]   选取其中的最值</p>
+<p>只与前一项有关，用pre记录b[j-1]</p>
+</li>
+<li><p>时间复杂度</p>
+<p>只需一层循环遍历一次—-&gt;O(n)</p>
+</li>
+</ul>
+</li>
+<li><p>实验结果分析</p>
+<img src="/2022/06/09/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/%E6%9C%80%E5%A4%A7%E5%AD%97%E6%AE%B5%E5%92%8C%E5%8A%A8%E8%A7%84%E6%80%9D%E8%B7%AF.png" srcset="/img/loading.gif" lazyload class="" title="最大字段和动规思路">
+</li>
+<li><p>运行结果</p>
+<img src="/2022/06/09/%E6%9C%80%E5%A4%A7%E5%AD%90%E6%AE%B5%E5%92%8C/%E6%9C%80%E5%A4%A7%E5%AD%97%E6%AE%B5%E5%92%8C%E6%9A%B4%E5%8A%9B%E8%BF%90%E8%A1%8C%E7%BB%93%E6%9E%9C.png" srcset="/img/loading.gif" lazyload class="" title="最大字段和暴力运行结果"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>五.实验体会</strong></p>
+<p>计算最大子段和，首先利用了暴力法求解，两层循环结束，思路清晰，时间复杂度为平方级，然后用分治法，递归求解两部分，在两部分和公共部分三段中取最大值，即为结果时间复杂度为n*log级，最后是动态规划法，重点在于找到合适的状态转移方程，递推下去求出结果。动态规划型题首先得证明最优性原理，说明可以先求解子问题，该子问题解确定一个阶段，下一阶段解可以利用这一结果，避免了大量的重复计算.</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E7%AE%97%E6%B3%95/" class="category-chain-item">算法</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%AE%97%E6%B3%95/">#算法</a>
+      
+        <a href="/tags/%E5%88%86%E6%B2%BB/">#分治</a>
+      
+        <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">#动态规划</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>最大子段和</div>
+      <div>http://kaikai12321.github.io/2022/06/09/最大子段和/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Hou Kai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年6月9日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/06/10/%E6%9C%80%E8%BF%91%E5%AF%B9%E9%97%AE%E9%A2%98/" title="最近对问题">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">最近对问题</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/04/03/%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99/" title="学习资料">
+                        <span class="hidden-mobile">学习资料</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"STsUnMjacd3JgrUyQjh2Whjc-gzGzoHsz","appKey":"McIbgVI9Lgj0fJnq9lJAzHAX","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

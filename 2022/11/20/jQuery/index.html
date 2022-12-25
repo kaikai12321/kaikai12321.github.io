@@ -1,0 +1,825 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/kaiicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Hou Kai">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="本文对jQuery的一些简单用法进行介绍，希望对您有所帮助">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jQuery">
+<meta property="og:url" content="http://kaikai12321.github.io/2022/11/20/jQuery/index.html">
+<meta property="og:site_name" content="楷楷">
+<meta property="og:description" content="本文对jQuery的一些简单用法进行介绍，希望对您有所帮助">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kaikai12321.github.io/img/default6.jpg">
+<meta property="article:published_time" content="2022-11-20T13:18:09.000Z">
+<meta property="article:modified_time" content="2022-12-25T13:36:54.315Z">
+<meta property="article:author" content="Hou Kai">
+<meta property="article:tag" content="jQuery">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://kaikai12321.github.io/img/default6.jpg">
+  
+  
+  
+  <title>jQuery - 楷楷</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaikai12321.github.io","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"STsUnMjacd3JgrUyQjh2Whjc-gzGzoHsz","app_key":"McIbgVI9Lgj0fJnq9lJAzHAX","server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>楷楷</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default7.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="jQuery"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-11-20 21:18" pubdate>
+          2022年11月20日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          6.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          53 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">jQuery</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>本文对jQuery的一些简单用法进行介绍，希望对您有所帮助</p>
+<span id="more"></span>	
+
+<h1 id="jQuery"><a href="#jQuery" class="headerlink" title="jQuery"></a>jQuery</h1><h3 id="一-介绍"><a href="#一-介绍" class="headerlink" title="一. 介绍"></a>一. 介绍</h3><blockquote>
+<ol>
+<li><p>前端库 方法库</p>
+</li>
+<li><p>优点：</p>
+<p>优质的选择器</p>
+<p>好用的隐式迭代</p>
+<p>强大的链式编程</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="二-选择器"><a href="#二-选择器" class="headerlink" title="二. 选择器"></a>二. 选择器</h3><blockquote>
+<ol>
+<li><p>基本选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>($(<span class="hljs-string">&quot;ul li&quot;</span>)) <span class="hljs-comment">//返回伪数组</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>特殊选择器</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-string">&quot;ul li:first&quot;</span>)<br>$(<span class="hljs-string">&quot;ul li:fast&quot;</span>)<br>$(<span class="hljs-string">&quot;ul li:eq(1)&quot;</span>)<br>$(<span class="hljs-string">&quot;u li:odd&quot;</span>) <span class="hljs-comment">//奇数索引</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>筛选方法</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">first</span>()<br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">eq</span>(<span class="hljs-number">3</span>)<br>...<br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<h3 id="三-操作"><a href="#三-操作" class="headerlink" title="三. 操作"></a>三. 操作</h3><blockquote>
+<h4 id="3-1-操作样式"><a href="#3-1-操作样式" class="headerlink" title="3.1 操作样式"></a>3.1 操作样式</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-string">&quot;...&quot;</span>).<span class="hljs-title function_">css</span>(<span class="hljs-string">&quot;属性名&quot;</span>) <span class="hljs-comment">//可以获取行内和style标签中的</span><br>$(<span class="hljs-string">&quot;...&quot;</span>).<span class="hljs-title function_">css</span>(<span class="hljs-string">&quot;属性名&quot;</span>,<span class="hljs-string">&quot;属性值&quot;</span>)<br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">css</span>(<span class="hljs-string">&quot;color&quot;</span>,<span class="hljs-string">&quot;red&quot;</span>)<span class="hljs-comment">//隐式迭代</span><br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">css</span>(&#123;<span class="hljs-attr">width</span>:100px,<span class="hljs-attr">height</span>:<span class="hljs-number">300</span>,<span class="hljs-attr">backgroundColor</span>:<span class="hljs-string">&quot;yellow&quot;</span>&#125;)<br><span class="hljs-comment">//都加到行内 </span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-2-操作class"><a href="#3-2-操作class" class="headerlink" title="3.2 操作class"></a>3.2 操作class</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">addClass</span>(<span class="hljs-string">&quot;active&quot;</span>)<br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">addClass</span>(<span class="hljs-string">&quot;active&quot;</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-3-操作内容"><a href="#3-3-操作内容" class="headerlink" title="3.3 操作内容"></a>3.3 操作内容</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">html</span>()<span class="hljs-comment">//没参数是获取</span><br><span class="hljs-keyword">var</span> arr = [<span class="hljs-string">&quot;aaa&quot;</span>,<span class="hljs-string">&quot;bbb&quot;</span>,<span class="hljs-string">&quot;ccc&quot;</span>]<br><span class="hljs-keyword">var</span> str = arr.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">item</span>=&gt;</span><span class="hljs-string">`&lt;li&gt;<span class="hljs-subst">$&#123;item&#125;</span>&lt;/li&gt;`</span>).<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;&quot;</span>)<br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">html</span>(str) <span class="hljs-comment">//有参数就是插入</span><br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">text</span>()<br>$(<span class="hljs-string">&quot;input&quot;</span>).<span class="hljs-title function_">val</span>()<span class="hljs-comment">//获取input输入值 多个的会返回第一个的值</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-4-操作属性"><a href="#3-4-操作属性" class="headerlink" title="3.4 操作属性"></a>3.4 操作属性</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//只是约定</span><br><span class="hljs-comment">//attr() 操作自定义 和 原生</span><br><span class="hljs-comment">//prop() 只能操作原生属性</span><br><span class="hljs-comment">//removeProp 无法删除原生属性</span><br><span class="hljs-comment">//index() 第几个</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-5-操作偏移量"><a href="#3-5-操作偏移量" class="headerlink" title="3.5 操作偏移量"></a>3.5 操作偏移量</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//offset 相对于文档流 支持设置</span><br><span class="hljs-comment">//position 相对于有定位的父元素 没有就是0 不支持设置</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-6-操作尺寸"><a href="#3-6-操作尺寸" class="headerlink" title="3.6 操作尺寸"></a>3.6 操作尺寸</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//内容宽高</span><br>.<span class="hljs-title function_">width</span>()<br><span class="hljs-comment">//内容宽高 + padding</span><br>.<span class="hljs-title function_">innerWidth</span>()<br><span class="hljs-comment">//内容宽高 + padding + border</span><br>.<span class="hljs-title function_">outerWidth</span>()<br><span class="hljs-comment">//内容宽高 + padding + border + margin</span><br>.<span class="hljs-title function_">outerWidth</span>(<span class="hljs-literal">true</span>)<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-7-事件"><a href="#3-7-事件" class="headerlink" title="3.7 事件"></a>3.7 事件</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//基本用法</span><br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;click&quot;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<br>&#125;)<br><span class="hljs-comment">//事件委托</span><br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;click&quot;</span>,<span class="hljs-string">&quot;button&quot;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123; <br><span class="hljs-comment">//button 表示从button冒上来</span><br>...<br>&#125;)<br><span class="hljs-comment">//on 传参数 必须是对象</span><br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">on</span>(<span class="hljs-string">&quot;click&quot;</span>,<span class="hljs-string">&quot;button&quot;</span>,&#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;kai&quot;</span>&#125;,<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123; <br>...<br>&#125;)<br><span class="hljs-comment">//一次性事件</span><br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">one</span>(<span class="hljs-string">&quot;click&quot;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123; 	<span class="hljs-comment">//点完之后再也不会触发</span><br>...<br>&#125;)<br><span class="hljs-comment">//常用的方法函数</span><br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">click</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<br>&#125;).<span class="hljs-title function_">mouseover</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;	<span class="hljs-comment">//链式写法</span><br>...<br>&#125;)<br><span class="hljs-comment">//解绑</span><br>$(<span class="hljs-string">&quot;ul li&quot;</span>).<span class="hljs-title function_">off</span>(<span class="hljs-string">&quot;click&quot;</span>)		<span class="hljs-comment">//没参数的话全部事件都清掉</span><br><span class="hljs-comment">//触发事件</span><br><span class="hljs-title function_">trigger</span>(<span class="hljs-string">&quot;click&quot;</span>)<span class="hljs-comment">//自动触发事件 抢票</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-8-动画"><a href="#3-8-动画" class="headerlink" title="3.8 动画"></a>3.8 动画</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//基本动画</span><br><span class="hljs-number">1.</span>显示隐藏<br><span class="hljs-number">1.1</span> <span class="hljs-title function_">show</span>() <span class="hljs-title function_">hide</span>()<span class="hljs-comment">//改动宽度高度和透明度 从右下角到左上角</span><br><span class="hljs-title function_">show</span>(<span class="hljs-string">&quot;time&quot;</span>,<span class="hljs-string">&quot;动画效果[swing/linear]&quot;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//回调函数</span><br>&#125;)<br><span class="hljs-title function_">toggle</span>() 切换效果<br><span class="hljs-number">1.2</span> <span class="hljs-title function_">slideDown</span>() <span class="hljs-title function_">slideUp</span>() <span class="hljs-title function_">slideToggle</span>() <span class="hljs-comment">//从下到上</span><br><span class="hljs-number">1.3</span> <span class="hljs-title function_">fadeIn</span>() <span class="hljs-title function_">fadeOut</span>() <span class="hljs-title function_">fadeToggle</span>()  <span class="hljs-title function_">fadeTo</span>(可以指定透明度) <span class="hljs-comment">//改变透明度 </span><br><span class="hljs-comment">//综合动画</span><br><span class="hljs-number">1.</span>没有过渡样式 不支持<br><span class="hljs-number">2.</span>颜色变化 不支持<br><span class="hljs-number">3.</span>transform 不支持<br><br>.<span class="hljs-title function_">animate</span>(&#123;<br><span class="hljs-attr">left</span>:<span class="hljs-string">&quot;100px&quot;</span>,<br>...<br>&#125;,<span class="hljs-number">1000</span>,<span class="hljs-string">&quot;linear&quot;</span>,<span class="hljs-function">()=&gt;</span>&#123;<br>...<br>&#125;)<br><span class="hljs-comment">//结束动画</span><br><span class="hljs-title function_">stop</span>() <span class="hljs-comment">//运动到哪儿停哪儿 其他动画函数之前使用</span><br><span class="hljs-title function_">finish</span>() <span class="hljs-comment">//立即到结束状态</span><br></code></pre></td></tr></table></figure>
+
+<h4 id="3-9-操作节点"><a href="#3-9-操作节点" class="headerlink" title="3.9 操作节点"></a>3.9 操作节点</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-comment">//创建 插入</span><br><span class="hljs-keyword">var</span> odiv = $(<span class="hljs-string">&quot;&lt;div&gt;hello&lt;/div&gt;&quot;</span>)<br><span class="hljs-comment">//子插</span><br>$(<span class="hljs-string">&quot;选择&quot;</span>).<span class="hljs-title function_">append</span>(odiv)  后面追加<br>$(<span class="hljs-string">&quot;选择&quot;</span>).<span class="hljs-title function_">prepend</span>(odiv) 前插<br><br>$(<span class="hljs-string">&quot;&lt;div&gt;&quot;</span>).<span class="hljs-title function_">html</span>(<span class="hljs-string">&quot;&lt;b&gt;first div&lt;/b&gt;&quot;</span>).<span class="hljs-title function_">addClass</span>(<span class="hljs-string">&quot;kai&quot;</span>).<span class="hljs-title function_">css</span>(<span class="hljs-string">&quot;background&quot;</span>,<span class="hljs-string">&quot;red&quot;</span>).<span class="hljs-title function_">appendTo</span>($(<span class="hljs-string">&quot;选择&quot;</span>)) <br>$(<span class="hljs-string">&quot;&lt;div&gt;&quot;</span>).<span class="hljs-title function_">html</span>(<span class="hljs-string">&quot;&lt;b&gt;firstdiv&lt;/b&gt;&quot;</span>).<span class="hljs-title function_">addClass</span>(<span class="hljs-string">&quot;kai&quot;</span>).<span class="hljs-title function_">css</span>(<span class="hljs-string">&quot;background&quot;</span>,<span class="hljs-string">&quot;red&quot;</span>).<span class="hljs-title function_">prependTo</span>($(<span class="hljs-string">&quot;选择&quot;</span>)) <br><span class="hljs-comment">//兄弟插</span><br>$(<span class="hljs-string">&quot;选择&quot;</span>).<span class="hljs-title function_">before</span>(odiv)  		插在该选择元素的前面<br>odiv.<span class="hljs-title function_">insertBefore</span>($(<span class="hljs-string">&quot;选择&quot;</span>)) 	<br><br><span class="hljs-title function_">after</span>() <span class="hljs-title function_">insertAfter</span>()<br><br><span class="hljs-comment">//删除</span><br>$(<span class="hljs-string">&quot;选择&quot;</span>).<span class="hljs-title function_">eq</span>(<span class="hljs-number">0</span>).<span class="hljs-title function_">remove</span>()  干掉自己<br>$(<span class="hljs-string">&quot;选择&quot;</span>).<span class="hljs-title function_">empty</span>()         清空内部<br><br><span class="hljs-comment">//替换</span><br>$(<span class="hljs-string">&quot;选择&quot;</span>).<span class="hljs-title function_">replaceWith</span>()   不止一个也会都替换<br>odiv.<span class="hljs-title function_">replaceAll</span>($(<span class="hljs-string">&quot;选择&quot;</span>)) <br><br><span class="hljs-comment">//克隆</span><br>$(<span class="hljs-string">&quot;选择&quot;</span>).<span class="hljs-title function_">clone</span>().<span class="hljs-title function_">prop</span>(<span class="hljs-string">&quot;id&quot;</span>,<span class="hljs-string">&quot;box2&quot;</span>).<span class="hljs-title function_">insertAfter</span>($(<span class="hljs-string">&quot;选择&quot;</span>))<br>clone的第一个参数 <span class="hljs-literal">true</span> 代表事件也克隆<br>clone的第二个参数 <span class="hljs-literal">true</span> 代表孩子传不传<br>flase ture 组合不可以<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="四-ajax"><a href="#四-ajax" class="headerlink" title="四. ajax"></a>四. ajax</h3><blockquote>
+<h4 id="1-综合发送ajax请求"><a href="#1-综合发送ajax请求" class="headerlink" title="1. 综合发送ajax请求"></a>1. 综合发送ajax请求</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs js">$.<span class="hljs-title function_">ajax</span>(&#123;<br><span class="hljs-attr">url</span>:<span class="hljs-string">&quot;&quot;</span>,<br><span class="hljs-attr">data</span>:&#123;<br><br>&#125;,<br><span class="hljs-attr">method</span>:<span class="hljs-string">&quot;get&quot;</span>,       <br><span class="hljs-attr">success</span>:<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br><br>&#125;,<br><span class="hljs-attr">error</span>:<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br><br>&#125;<br>&#125;)<br>promise风格<br>$.<span class="hljs-title function_">ajax</span>(&#123;<br><span class="hljs-attr">url</span>:<span class="hljs-string">&quot;&quot;</span>,<br><span class="hljs-attr">data</span>:&#123;<br><br>&#125;,<br><span class="hljs-attr">method</span>:<span class="hljs-string">&quot;get&quot;</span><br>&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span>=&gt;</span>&#123;<br>...<br>&#125;).<span class="hljs-title function_">catch</span>(<span class="hljs-function"><span class="hljs-params">err</span>=&gt;</span>&#123;<br>...<br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h4 id="2-get-x2F-post"><a href="#2-get-x2F-post" class="headerlink" title="2. get&#x2F;post"></a>2. get&#x2F;post</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs js">$.<span class="hljs-title function_">get</span>(<span class="hljs-string">&quot;url&quot;</span>,&#123;<br>参数<br>&#125;).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">res</span>=&gt;</span>&#123;<br><br>&#125;)<br></code></pre></td></tr></table></figure>
+
+<h4 id="3-jsonp"><a href="#3-jsonp" class="headerlink" title="3. jsonp"></a>3. jsonp</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs js">$.<span class="hljs-title function_">ajax</span>(&#123;<br><span class="hljs-attr">url</span>:<span class="hljs-string">&quot;&quot;</span>,<br><span class="hljs-attr">dataType</span>:<span class="hljs-string">&quot;jsonp&quot;</span>,<br><span class="hljs-attr">jsonp</span>:<span class="hljs-string">&quot;jsoncallback&quot;</span>,<br><span class="hljs-attr">jsonCallback</span>:<span class="hljs-string">&quot;kaikai&quot;</span>, <span class="hljs-comment">//可以不用写 会自动创</span><br><span class="hljs-attr">success</span>:<span class="hljs-function">(<span class="hljs-params">res</span>)=&gt;</span>&#123;<br>  ...<span class="hljs-comment">//不屑callback走success</span><br>&#125;<br>&#125;)<span class="hljs-comment">//或者使用.then调用</span><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">kaikai</span>(<span class="hljs-params">res</span>)&#123;<br>...<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="4-钩子函数"><a href="#4-钩子函数" class="headerlink" title="4. 钩子函数"></a>4. 钩子函数</h4><p>钓鱼 放钩子后等🐟咬</p>
+<p><strong>人性化loading</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs js">$(<span class="hljs-variable language_">window</span>).<span class="hljs-title function_">ajaxStart</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//第一个ajax发送前执行</span><br>&#125;)<br>$(<span class="hljs-variable language_">window</span>).<span class="hljs-title function_">ajaxSend</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//每一个ajax发送前执行</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;loading&quot;</span>)<br>&#125;)<br>$(<span class="hljs-variable language_">window</span>).<span class="hljs-title function_">ajaxSuccess</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//每一个ajax成功触发后执行</span><br>&#125;)<br>$(<span class="hljs-variable language_">window</span>).<span class="hljs-title function_">ajaxError</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//每一个ajax失败触发后执行</span><br>&#125;)<br>$(<span class="hljs-variable language_">window</span>).<span class="hljs-title function_">ajaxComplete</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//每一个ajax成功或者失败触发后执行</span><br>&#125;)<br>$(<span class="hljs-variable language_">window</span>).<span class="hljs-title function_">ajaxStop</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//当前页面作用域 最后一个ajax结束执行</span><br><span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;loading 结束&quot;</span>)<br>&#125;)<br><br>$(<span class="hljs-variable language_">window</span>).<span class="hljs-title function_">ready</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//所有dom节点加载完</span><br>&#125;)<br>简写为<br>$(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)&#123;<br>...<span class="hljs-comment">//所有dom节点加载完</span><br>&#125;)<br></code></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="五-深浅拷贝"><a href="#五-深浅拷贝" class="headerlink" title="五. 深浅拷贝"></a>五. 深浅拷贝</h3><blockquote>
+<ol>
+<li><p>基本数据类型赋值</p>
+<img src="/2022/11/20/jQuery/%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png" srcset="/img/loading.gif" lazyload class="" title="基本数据类型">
+
+<p>复杂数据类型</p>
+<img src="/2022/11/20/jQuery/%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.png" srcset="/img/loading.gif" lazyload class="" title="复杂数据类型">
+</li>
+<li><p>区别</p>
+</li>
+</ol>
+<p>浅拷贝<strong>只复制指向某个对象的指针</strong>，而不复制对象本身，新旧对象还是共享同一块内存。但深拷贝会另外创造一个一模一样的对象，<strong>新对象跟原对象不共享内存</strong>，修改新对象不会改到原对象。</p>
+<img src="/2022/11/20/jQuery/copy.png" srcset="/img/loading.gif" lazyload class="" title="copy">
+
+<ol start="3">
+<li><p>浅copy</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> myobj1 = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;kai&quot;</span>&#125;<br><span class="hljs-keyword">var</span> myobj2 = &#123;&#125;<br><span class="hljs-comment">//1.for循环</span><br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> myobj1)&#123;<br>    myobj2[i] = myobj1[i]<br>&#125;<br><span class="hljs-comment">//2.解构函数</span><br><span class="hljs-keyword">var</span> myobj3 = &#123;...myobj1&#125;<br><span class="hljs-comment">//但是如果对象是多层无法解决</span><br>myobj4 = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;kai&quot;</span>,<span class="hljs-attr">location</span>:&#123;<span class="hljs-attr">city</span>:<span class="hljs-string">&quot;beijing&quot;</span>&#125;&#125;<br><span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i <span class="hljs-keyword">in</span> myobj1)&#123;<br>    myobj2[i] = myobj4[i]  <span class="hljs-comment">//此时修改myobj2的location会都改变</span><br>&#125;<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>深copy</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs js">myobj1 = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&quot;kai&quot;</span>,<span class="hljs-attr">location</span>:&#123;<span class="hljs-attr">city</span>:<span class="hljs-string">&quot;beijing&quot;</span>&#125;,<span class="hljs-attr">c</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]&#125;<br><span class="hljs-keyword">var</span> myobj2 = &#123;&#125;<br><span class="hljs-keyword">function</span> <span class="hljs-title function_">deepCopy</span>(<span class="hljs-params">o2,o1</span>)&#123;<br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> o1)&#123;<br>        <span class="hljs-comment">//toString</span><br>        <span class="hljs-keyword">if</span>(o1[i].<span class="hljs-title function_">toString</span>() === <span class="hljs-string">`[object Object]`</span>)&#123;<br>            o2[i] = &#123;&#125;<br>            <span class="hljs-title function_">deepCopy</span>(o2[i],o1[i])<br>        &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">toString</span>.<span class="hljs-title function_">call</span>(o1[i]) === <span class="hljs-string">`[object Array]`</span>)&#123;<br>            o2[i] = []<br>            <span class="hljs-title function_">deepCopy</span>(o2[i],o1[i])<br>        &#125;<br>        <span class="hljs-keyword">else</span>&#123;<br>            o2[i] = o1[i]<br>        &#125;<br>    &#125;<br>&#125;<br><span class="hljs-title function_">deepCopy</span>(myobj2,myobj1)<br><span class="hljs-comment">//深拷贝 copy-json</span><br>myobj2 = <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">parse</span>(<span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(myobj1))<span class="hljs-comment">//遇到undefined 会丢失</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>jquery copy</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs js">浅拷贝<br>$.<span class="hljs-title function_">extend</span>(myobj2,myobj1)<span class="hljs-comment">//可以有多个参数 都给myobj2</span><br>深拷贝<br>$.<span class="hljs-title function_">extend</span>(<span class="hljs-literal">true</span>,myobj2,myobj1)<span class="hljs-comment">//可以有多个参数 都给myobj2</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+</blockquote>
+<h3 id="六-jquery-其他用法"><a href="#六-jquery-其他用法" class="headerlink" title="六. jquery 其他用法"></a>六. jquery 其他用法</h3><blockquote>
+<ol>
+<li><p>多库并存</p>
+<p>交出控制权 </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">var</span> kai = $.<span class="hljs-title function_">noConflict</span>(<span class="hljs-literal">true</span>)<span class="hljs-comment">//交出$,jQuery权 并把jQuery给到kai</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>插件扩展</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs js">$.<span class="hljs-title function_">extend</span>(&#123;<br>    <span class="hljs-title function_">deepCopy</span>(<span class="hljs-params">o2,o1</span>)&#123;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i <span class="hljs-keyword">in</span> o1)&#123;<br>            <span class="hljs-comment">//toString</span><br>            <span class="hljs-keyword">if</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">toString</span>.<span class="hljs-title function_">call</span>(o1[i]) === <span class="hljs-string">`[object Object]`</span>)&#123;<br>                o2[i] = &#123;&#125;<br>                <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">deepCopy</span>(o2[i],o1[i])<br>            &#125;<span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(<span class="hljs-title class_">Object</span>.<span class="hljs-property"><span class="hljs-keyword">prototype</span></span>.<span class="hljs-property">toString</span>.<span class="hljs-title function_">call</span>(o1[i]) === <span class="hljs-string">`[object Array]`</span>)&#123;<br>                o2[i] = []<br>                <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">deepCopy</span>(o2[i],o1[i])<br>            &#125;<br>            <span class="hljs-keyword">else</span>&#123;<br>                o2[i] = o1[i]<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;)<br>$.fn.<span class="hljs-title function_">extend</span>(&#123;<br>    ...<br>    <span class="hljs-title function_">f</span>(<span class="hljs-params"></span>)&#123;<br>    	<span class="hljs-keyword">return</span> <span class="hljs-variable language_">this</span> <span class="hljs-comment">//这样子可以后面接着链式调用</span><br>	&#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>轮播库</p>
+<img src="/2022/11/20/jQuery/4.png" srcset="/img/loading.gif" lazyload class="" width="4"></li>
+</ol>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/web%E5%89%8D%E7%AB%AF/" class="category-chain-item">web前端</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/jQuery/">#jQuery</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>jQuery</div>
+      <div>http://kaikai12321.github.io/2022/11/20/jQuery/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Hou Kai</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年11月20日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/11/21/%E6%93%8D%E4%BD%9CDOM/" title="操作DOM">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">操作DOM</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/20/%E4%BD%9C%E4%B8%9A%E8%B0%83%E5%BA%A6/" title="作业调度">
+                        <span class="hidden-mobile">作业调度</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.5.1/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"STsUnMjacd3JgrUyQjh2Whjc-gzGzoHsz","appKey":"McIbgVI9Lgj0fJnq9lJAzHAX","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
